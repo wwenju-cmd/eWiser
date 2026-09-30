@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>eWiser · 隐私政策</title>
+<style>
+  :root{ --ink:#1c2030; --sub:#5a6178; --line:#e4e7f0; --brand:#5b4ee0; --brand2:#7c6cf5; --bg:#f7f8fc; }
+  *{ margin:0; padding:0; box-sizing:border-box; }
+  body{ font-family:"PingFang SC","Microsoft YaHei",system-ui,sans-serif; color:var(--ink); background:var(--bg); line-height:1.85; }
+  header{ background:linear-gradient(135deg,#5b4ee0,#8a6ff3); color:#fff; padding:56px 24px 48px; text-align:center; }
+  header .mark{ width:64px; height:64px; border-radius:16px; background:rgba(255,255,255,.18); display:inline-flex; align-items:center; justify-content:center; font-size:30px; font-weight:700; margin-bottom:14px; }
+  header h1{ font-size:26px; font-weight:600; }
+  header p{ opacity:.85; font-size:14px; margin-top:6px; }
+  main{ max-width:760px; margin:0 auto; padding:40px 20px 80px; }
+  section{ background:#fff; border:1px solid var(--line); border-radius:14px; padding:28px 30px; margin-bottom:18px; }
+  h2{ font-size:17px; margin-bottom:10px; color:var(--brand); }
+  p,li{ font-size:14.5px; color:var(--ink); }
+  ul{ padding-left:22px; }
+  li{ margin-bottom:6px; }
+  .em{ color:var(--brand); font-weight:600; }
+  .meta{ color:var(--sub); font-size:13px; }
+  .en{ margin-top:14px; padding-top:14px; border-top:1px dashed var(--line); color:var(--sub); font-size:13.5px; line-height:1.7; }
+  .en b{ color:var(--ink); }
+  footer{ text-align:center; color:var(--sub); font-size:12.5px; padding-bottom:40px; }
+</style>
+</head>
+<body>
+<header>
+  <div class="mark">eW</div>
+  <h1>eWiser · 隐私政策</h1>
+  <p>Paragraph-level Bilingual Translation — Privacy Policy</p>
+</header>
+<main>
+
+<section>
+  <h2>概述 Summary</h2>
+  <p>eWiser 是一款网页双语翻译浏览器扩展。我们的核心隐私承诺非常简单：</p>
+  <ul>
+    <li><span class="em">我们不收集任何数据。</span> 扩展没有自己的服务器，开发者无法访问你的任何信息。</li>
+    <li><span class="em">一切数据保存在你的浏览器本地。</span> API 密钥、设置和译文缓存均存储于本地，仅由扩展自身读写。</li>
+  </ul>
+  <p class="en"><b>English:</b> eWiser is a browser extension for paragraph-level bilingual translation. The developer does not collect, store, or transmit any user data. All settings (including API keys) and cached translations are stored locally in your browser and are never sent to the developer.</p>
+</section>
+
+<section>
+  <h2>数据如何流动 Data Flow</h2>
+  <p>当你触发翻译时，扩展的工作方式如下：</p>
+  <ul>
+    <li>扩展读取当前网页中的段落文本（仅在你主动点击翻译按钮、右键菜单或按下快捷键 Alt+T 时）；</li>
+    <li>这些段落文本被发送到<span class="em">你自己配置的大模型 API 接口</span>（如 Kimi、DeepSeek、智谱 GLM 或你自定义的 OpenAI 兼容接口）用于生成译文；</li>
+    <li>返回的译文插入到原文下方，并缓存到本地存储以加速下次访问。</li>
+  </ul>
+  <p>除上述「发送给你自己配置的 AI 服务商」之外，扩展不会向任何第三方发送数据，不存在任何广告、追踪、分析或遥测。</p>
+  <p class="en"><b>English:</b> When you trigger translation, paragraph text from the current page is sent <b>only</b> to the AI API endpoint you have configured (e.g. Kimi, DeepSeek, Zhipu GLM, or a custom OpenAI-compatible endpoint). The extension communicates with no other servers. There are no ads, no analytics, and no tracking of any kind.</p>
+  <p style="margin-top:12px"><b>视频翻译（可选功能）：</b>当你在视频页面勾选「视频翻译」并点击字幕浮层的「▶ 开始」后：</p>
+  <ul>
+    <li>若视频自带字幕轨，扩展仅读取字幕文本并按上述流程翻译，<span class="em">不采集任何音频</span>；</li>
+    <li>若视频无字幕轨，扩展通过 tabCapture 捕获<span class="em">当前标签页的音频</span>，实时发送至你自己填写凭证的<span class="em">讯飞实时语音转写（RTASR）接口</span>进行语音识别，识别文本再按上述流程翻译；</li>
+    <li>音频流仅在识别会话期间实时传输，不录音、不落盘、不保存；点击「■ 停止」或取消勾选即终止采集。</li>
+  </ul>
+  <p class="en"><b>English (video translation, optional):</b> When you enable "Video Translation" on a video page and press ▶: if the video has caption tracks, only caption text is read — no audio is captured. If not, tab audio is streamed in real time to the iFlytek RTASR endpoint whose credentials you provided, solely for speech recognition. Audio is never recorded or stored, and capture stops the moment you stop the session.</p>
+</section>
+
+<section>
+  <h2>本地存储 Local Storage</h2>
+  <p>扩展在你的浏览器中保存：</p>
+  <ul>
+    <li>模型服务商配置：API Base URL、API Key、模型名称、目标语言等；</li>
+    <li>译文缓存：已翻译页面的段落译文，用于加速重复访问。</li>
+  </ul>
+  <p>以上数据全部保存在浏览器本地（chrome.storage），清除浏览器数据或卸载扩展即被彻底删除。</p>
+</section>
+
+<section>
+  <h2>权限用途 Permissions</h2>
+  <ul>
+    <li><b>host_permissions / scripting</b>：在你当前浏览并触发翻译的网页中注入段落切分与译文展示脚本；</li>
+    <li><b>storage / unlimitedStorage</b>：本地保存配置与译文缓存；</li>
+    <li><b>activeTab / contextMenus</b>：通过工具栏按钮、右键菜单「翻译本页」触发当前标签页的翻译；</li>
+    <li><b>tabCapture</b>：仅当你在视频页面主动开始「视频翻译」且视频无字幕轨时，捕获当前标签页音频用于实时语音识别；</li>
+    <li><b>offscreen</b>：在离屏文档中运行音频处理（AudioWorklet），把采集的音频流转发至语音识别接口。</li>
+  </ul>
+  <p>扩展不会在后台读取你没有主动翻译的页面，也不会在你未开始视频翻译时采集任何音频。</p>
+</section>
+
+<section>
+  <h2>第三方服务 Third-party Services</h2>
+  <p>译文由你自行配置的大模型服务商生成；视频语音识别由你自行填写凭证的讯飞实时语音转写服务完成。你与这些服务商之间的数据处理受其自身隐私政策约束，请在对应平台查阅（如月之暗面、深度求索、智谱、讯飞开放平台等的服务条款与隐私政策）。</p>
+</section>
+
+<section>
+  <h2>政策更新 Changes</h2>
+  <p>若本政策有重大变更，将在扩展更新说明中告知。政策最后更新日期：<span class="em">2026 年 9 月 30 日</span>。</p>
+</section>
+
+</main>
+<footer>eWiser · MPL-2.0 Open Source · privacy@ewiser.local（如有疑问请通过扩展发布页联系开发者）</footer>
+</body>
+</html>
